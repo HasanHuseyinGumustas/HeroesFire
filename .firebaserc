@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fire-angular-f92d0": {
+      "hosting": {
+        "angular-tour-of-heroes": [
+          "fire-angular-f92d0"
+        ]
+      }
+    }
+  }
+}
