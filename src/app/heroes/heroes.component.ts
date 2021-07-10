@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
@@ -9,12 +10,14 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
+  
   heroes: Hero[] = [];
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
     this.getHeroes();
+    this.heroService.getHeroesFromFirebase()
   }
 
   getHeroes(): void {

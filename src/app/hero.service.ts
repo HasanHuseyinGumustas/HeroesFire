@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Hero } from './hero';
 import { MessageService } from './message.service';
@@ -18,8 +19,10 @@ export class HeroService {
   };
 
   constructor(
+    private afs:AngularFirestore,
     private http: HttpClient,
     private messageService: MessageService) { }
+    
 
   /** GET heroes from the server */
   getHeroes(): Observable<Hero[]> {
@@ -42,6 +45,13 @@ export class HeroService {
         }),
         catchError(this.handleError<Hero>(`getHero id=${id}`))
       );
+  }
+  async getHeroesFromFirebase(){
+    
+    
+    await this.afs.collection("heroes").add({Data: "Hello World"}).then(res => {
+      console.log(res)
+    })
   }
 
   /** GET hero by id. Will 404 if id not found */
