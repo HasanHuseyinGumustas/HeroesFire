@@ -6,6 +6,13 @@
           "fire-angular-f92d0"
         ]
       }
+    },
+    "angularfire-d26a0": {
+      "hosting": {
+        "angular-tour-of-heroes": [
+          "angularfire-d26a0"
+        ]
+      }
     }
   }
 }
