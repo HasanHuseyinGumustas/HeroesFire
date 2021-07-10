@@ -8,5 +8,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  items: Observable<any[]>;
+  constructor(firestore: AngularFirestore){
+    this.items= firestore.collection('heroes').valueChanges(); 
+  }
 }

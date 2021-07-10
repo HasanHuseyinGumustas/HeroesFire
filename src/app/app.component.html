@@ -6,3 +6,8 @@
 <app-grid></app-grid>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+  </li>
+</ul>
